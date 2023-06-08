@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountService } from './accounr.service';
 
 @Component({
   selector: 'app-root',
@@ -8,31 +9,18 @@ import { Component } from '@angular/core';
     h1 {
       color:dodgerblue;
     }
-  `]
+  `],
+  providers:[AccountService]
 })
 export class AppComponent {
   title = 'my-first-app';
 
-  accounts = [
-    {
-      name: 'Master Account',
-      status: 'active'
-    },
-    {
-      name: 'Testaccount',
-      status: 'inactive'
-    },
-    {
-      name: 'Hidden Account',
-      status: 'unknown'
-    }
-  ];
+  account: {name: string, status:string}[] = [];
+  //empty array
 
-  onAccountAdded(newAccount: {name: string, status: string}) {
-    this.accounts.push(newAccount);
-  }
+  constructor(private accountService: AccountService) {}
 
-  onStatusChanged(updateInfo: {id: number, newStatus: string}) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
+  ngOnInit() {
+    this.account = this.accountService.accounts;
   }
 }
