@@ -15,7 +15,19 @@ import { AccountService } from './accounr.service';
 import { LoggingService } from './logging.service';
 import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
+import { ServersRComponent } from './serversR/Rservers.component';
+import { ServerRComponent } from './serversR/serverR/Rserver.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { EditServerComponent } from './serversR/edit-server/edit-server.component';
+
+
+// ROUTER
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UserComponent }, //localhost:4200/users
+  { path: 'servers', component: ServersRComponent }
+]
 
 @NgModule({
   declarations: [
@@ -30,11 +42,15 @@ import { EditServerComponent } from './serversR/edit-server/edit-server.componen
     NewAccountComponent,
     UserComponent,
     UsersComponent,
+    HomeComponent,
+    ServersRComponent,
+    ServerRComponent,
     EditServerComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AccountService, LoggingService],
   bootstrap: [AppComponent]

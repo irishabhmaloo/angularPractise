@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ServersService } from '../servers.service';
+import { ServersService } from '../Rservers.service';
 
 @Component({
   selector: 'app-edit-server',
