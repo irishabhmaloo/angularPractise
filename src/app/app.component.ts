@@ -17,10 +17,15 @@ export class AppComponent {
 
   account: {name: string, status:string}[] = [];
   //empty array
-
+  
   constructor(private accountService: AccountService) {}
+  
 
   ngOnInit() {
     this.account = this.accountService.accounts;
+  }
+
+  onAccountAdded(event) {
+
   }
 }
