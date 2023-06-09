@@ -11,6 +11,8 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { NewDirectDirective } from './basic-highlight/new-direct.directive';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
+import { AccountService } from './accounr.service';
+import { LoggingService } from './logging.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { NewAccountComponent } from './new-account/new-account.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AccountService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

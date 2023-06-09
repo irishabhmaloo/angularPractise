@@ -9,8 +9,7 @@ import { AccountService } from './accounr.service';
     h1 {
       color:dodgerblue;
     }
-  `],
-  providers:[AccountService]
+  `]
 })
 export class AppComponent {
   title = 'my-first-app';
