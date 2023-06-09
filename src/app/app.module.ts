@@ -13,6 +13,9 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { AccountService } from './accounr.service';
 import { LoggingService } from './logging.service';
+import { UserComponent } from './users/user/user.component';
+import { UsersComponent } from './users/users.component';
+import { EditServerComponent } from './serversR/edit-server/edit-server.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { LoggingService } from './logging.service';
     BasicHighlightDirective,
     NewDirectDirective,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    UserComponent,
+    UsersComponent,
+    EditServerComponent
   ],
   imports: [
     BrowserModule,
