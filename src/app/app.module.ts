@@ -20,6 +20,7 @@ import { ServerRComponent } from './serversR/serverR/Rserver.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { EditServerComponent } from './serversR/edit-server/edit-server.component';
+import { ServersService } from './serversR/Rservers.service';
 
 
 // ROUTER
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AccountService, LoggingService],
+  providers: [AccountService, LoggingService, ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
