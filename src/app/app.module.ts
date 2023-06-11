@@ -17,29 +17,12 @@ import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { ServersRComponent } from './serversR/Rservers.component';
 import { ServerRComponent } from './serversR/serverR/Rserver.component';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { EditServerComponent } from './serversR/edit-server/edit-server.component';
 import { ServersService } from './serversR/Rservers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
-
-// ROUTER
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  
-  { path: 'users', component: UsersComponent , children : [
-    { path: ':id/:name', component: UserComponent }
-  ]}, 
-  
-  { path: 'servers', component: ServersRComponent , children: [
-    { path: ':id/edit', component: EditServerComponent },
-    { path: ':id', component: ServerRComponent }
-  ]},
-
-  { path: 'not-found', component: PageNotFoundComponent},
-  { path: '**', redirectTo : '/not-found'}  
-]
 
 @NgModule({
   declarations: [
@@ -63,7 +46,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [AccountService, LoggingService, ServersService],
   bootstrap: [AppComponent]
