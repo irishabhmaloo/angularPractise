@@ -9,6 +9,7 @@ import { ServerRComponent } from "./serversR/serverR/Rserver.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { AuthGuard } from "./auth-guard.service";
 import { canDeactivateGuard } from "./serversR/edit-server/can-deactivate-guard.service";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 // ROUTER
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
       { path: ':id', component: ServerRComponent }
     ]},
   
-    { path: 'not-found', component: PageNotFoundComponent},
+    // { path: 'not-found', component: PageNotFoundComponent},
+    { path: 'not-found', component: ErrorPageComponent , data: {message: 'Page not found!'}},
     { path: '**', redirectTo : '/not-found'}  
   ]
 
