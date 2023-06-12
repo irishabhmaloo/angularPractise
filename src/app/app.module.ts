@@ -22,6 +22,8 @@ import { EditServerComponent } from './serversR/edit-server/edit-server.componen
 import { ServersService } from './serversR/Rservers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -48,7 +50,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AccountService, LoggingService, ServersService],
+  providers: [AccountService, LoggingService, ServersService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

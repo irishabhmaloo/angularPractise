@@ -7,6 +7,7 @@ import { ServersRComponent } from "./serversR/Rservers.component";
 import { EditServerComponent } from "./serversR/edit-server/edit-server.component";
 import { ServerRComponent } from "./serversR/serverR/Rserver.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { AuthGuard } from "./auth-guard.service";
 
 // ROUTER
 const appRoutes: Routes = [
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
       { path: ':id/:name', component: UserComponent }
     ]}, 
     
-    { path: 'servers', component: ServersRComponent , children: [
+    { path: 'servers', canActivate: [AuthGuard], component: ServersRComponent , children: [
       { path: ':id/edit', component: EditServerComponent },
       { path: ':id', component: ServerRComponent }
     ]},
