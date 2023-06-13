@@ -5,6 +5,7 @@
         Hi, Rishabh
       </h1>
       
+      <!-- routing -->
       <hr>
       <div class="container">
         <div class="row">
@@ -23,7 +24,30 @@
         </div>
       </div>
 
+      <!-- observable -->
       <hr>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+              <a [routerLink]="[{outlets: {'observing' : 'O'}}]">Home</a> |
+              <a [routerLink]="[{outlets: {'observing' : ['O', 'user', 1]}}]">
+                User 1
+              </a>
+              
+              <a [routerLink]="[{outlets: {'observing' : ['O', 'user', 2]}}]">
+                User 2
+              </a>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+              <router-outlet name='observing'></router-outlet>
+            </div>
+          </div>
+        </div>
+      <hr>
+
       <app-servers></app-servers>
       <!-- <div app-server></div> -->
       <!-- <div class="app-servers"></div> -->

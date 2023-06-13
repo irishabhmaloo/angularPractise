@@ -27,6 +27,8 @@ import { AuthService } from './auth.service';
 import { canDeactivateGuard } from './serversR/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { serverResolver } from './serversR/serverR/server-resolver.service';
+import { HomeOComponent } from './homeO/homeO.component';
+import { UserOComponent } from './userO/userO.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { serverResolver } from './serversR/serverR/server-resolver.service';
     ServerRComponent,
     EditServerComponent,
     PageNotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    HomeOComponent,
+    UserOComponent
   ],
   imports: [
     BrowserModule,

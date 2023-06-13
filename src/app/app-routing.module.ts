@@ -11,6 +11,8 @@ import { AuthGuard } from "./auth-guard.service";
 import { canDeactivateGuard } from "./serversR/edit-server/can-deactivate-guard.service";
 import { ErrorPageComponent } from "./error-page/error-page.component";
 import { serverResolver } from "./serversR/serverR/server-resolver.service";
+import { HomeOComponent } from "./homeO/homeO.component";
+import { UserOComponent } from "./userO/userO.component";
 // ROUTER
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -29,9 +31,13 @@ const appRoutes: Routes = [
       { path: ':id', component: ServerRComponent, resolve: {server: serverResolver} }
     ]},
   
+    //observable
+    {path: 'O', outlet:'observing', component: HomeOComponent},
+    {path: 'O/user/:id', outlet:'observing', component: UserOComponent},
+
     // { path: 'not-found', component: PageNotFoundComponent},
-    { path: 'not-found', component: ErrorPageComponent , data: {message: 'Page not found!'}},
-    { path: '**', redirectTo : '/not-found'}
+    // { path: 'not-found', component: ErrorPageComponent , data: {message: 'Page not found!'}},
+    // { path: '**', redirectTo : '/not-found'}
   ]
 
 @NgModule({
