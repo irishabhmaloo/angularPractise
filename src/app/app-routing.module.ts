@@ -35,9 +35,9 @@ const appRoutes: Routes = [
     {path: 'O', outlet:'observing', component: HomeOComponent},
     {path: 'O/user/:id', outlet:'observing', component: UserOComponent},
 
-    // { path: 'not-found', component: PageNotFoundComponent},
-    // { path: 'not-found', component: ErrorPageComponent , data: {message: 'Page not found!'}},
-    // { path: '**', redirectTo : '/not-found'}
+    { path: 'not-found', component: PageNotFoundComponent},
+    { path: 'not-found', component: ErrorPageComponent , data: {message: 'Page not found!'}},
+    { path: '**', redirectTo : '/not-found'}
   ]
 
 @NgModule({
