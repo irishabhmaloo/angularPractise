@@ -69,24 +69,40 @@
                   <input type="email" 
                     id="email" 
                     class="form-control"
-                    ngModel
+                    [ngModel]='"abc@gmail.com"'
                     name="emaiL"
                     required
-                    email>
+                    email
+                    #ref="ngModel">
                 </div>
+                <span class="help-block" *ngIf="!ref.valid && ref.touched">Please enter a valid value!</span>
               </div>
               <div class="form-group">
                 <label for="secret">Secret Questions</label>
                 <select   
                   id="secret" 
                   class="form-control"
-                  ngModel
+                  [ngModel]="defaultQuestion"
                   name="secret">
                   <option value="pet">Your first Pet?</option>
                   <option value="teacher">Your first teacher?</option>
                 </select>
               </div>
-              <button class="btn btn-primary" type="submit">Submit</button>
+              <div>
+                <div class="form-group">
+                  <textarea 
+                  name="questionAnswer"
+                  class="form-control"
+                  rows="3"
+                  [(ngModel)]="answer"
+                  #sel ="ngModel"></textarea>
+                </div>
+                <p *ngIf="sel.touched && sel.value !==''">Your reply: {{ answer }}</p>
+              </div>
+              <button   
+                class="btn btn-primary" 
+                type="submit"
+                [disabled]="!f.valid">Submit</button>
             </form>
           </div>
         </div>

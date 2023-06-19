@@ -32,6 +32,8 @@ export class AppComponent {
     const suggestedName = 'Superuser';
   }
 
+  defaultQuestion = 'pet';
+  answer = "";
 
   // @ViewChild('f') signupForm : NgForm;
   // onSubmit(){
