@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AccountService } from './accounr.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +23,16 @@ export class AppComponent {
 
   ngOnInit() {
     this.account = this.accountService.accounts;
+  }  
+
+  onAccountAdded(event) {  }
+
+  //forms
+  suggestUserName() {
+    const suggestedName = 'Superuser';
   }
 
-  onAccountAdded(event) {
-
+  onSubmit(form: NgForm) {
+    console.log(form);
   }
 }
