@@ -28,19 +28,53 @@ export class AppComponent {
   onAccountAdded(event) {  }
 
   //forms
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-  }
-
   defaultQuestion = 'pet';
   answer = "";
+  genders = ['male' , 'female'];
+  user = {
+    username: '',
+    email: '',
+    secret: '',
+    answer: '',
+    gender: ''
+  };
+  submitted = false
 
-  // @ViewChild('f') signupForm : NgForm;
-  // onSubmit(){
-  //   console.log(this.signupForm);
-  // }
+  @ViewChild('f') signupForm : NgForm;
+  onSubmit(){
+    console.log(this.signupForm);
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+    this.submitted = true;
+    this.user.username = this.signupForm.value.groupNew.username;
+    this.user.email = this.signupForm.value.groupNew.email;
+    this.user.secret = this.signupForm.value.secret;
+    this.user.answer = this.signupForm.value.questionAnswer;
+    this.user.gender = this.signupForm.value.gender;
+
+    this.signupForm.reset();
   }
+
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+  
+    // this.signupForm.setValue({
+    //   groupNew: {
+    //     username: suggestedName,
+    //     email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male'
+    // });
+
+    this.signupForm.form.patchValue({
+      groupNew: {
+        username: suggestedName
+      }
+    });
+  }
+
+  // onSubmit(form: NgForm) {
+  //   console.log(form);
+  // }
 }
