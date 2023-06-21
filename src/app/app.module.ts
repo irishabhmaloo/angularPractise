@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Assign2Component } from './assign2/assign2.component';
 import { AppServerElementComponent } from './app-server-element/app-server-element.component';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
@@ -29,6 +29,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { serverResolver } from './serversR/serverR/server-resolver.service';
 import { HomeOComponent } from './homeO/homeO.component';
 import { UserOComponent } from './userO/userO.component';
+import { ReactFormComponent } from './react-form/react-form.component';
 
 
 @NgModule({
@@ -51,12 +52,14 @@ import { UserOComponent } from './userO/userO.component';
     PageNotFoundComponent,
     ErrorPageComponent,
     HomeOComponent,
-    UserOComponent
+    UserOComponent,
+    ReactFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AccountService, LoggingService, ServersService, AuthGuard, AuthService, canDeactivateGuard, serverResolver],
   bootstrap: [AppComponent]
