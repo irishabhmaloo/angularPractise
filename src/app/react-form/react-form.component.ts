@@ -10,7 +10,7 @@ import { Observable } from 'rxjs-compat';
 export class ReactFormComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup;
-  forbiddenUsernames = ['krishna' , 'shreya' , 'sathvik'];
+  forbiddenUsernames = ['krishna' , 'shreya' , 'sathwik'];
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -24,8 +24,6 @@ export class ReactFormComponent implements OnInit {
 
     // this.signupForm.valueChanges.subscribe(
     //   (value) => console.log(value)
-    // );
-
     // this.signupForm.statusChanges.subscribe(
     //   (status) => console.log(status)
     // );
