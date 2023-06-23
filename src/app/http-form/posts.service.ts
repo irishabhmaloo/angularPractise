@@ -34,4 +34,8 @@ export class PostsService {
             return postsArray; //for subscribe
             }));
     }
+
+    deletePosts() {
+        return this.http.delete('https://learnangular-86b7b-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+    }
 }
