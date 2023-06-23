@@ -1,25 +1,31 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Post } from './post.model';
 import { PostsService } from './posts.service';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-http-form',
   templateUrl: './http-form.component.html',
   styleUrls: ['./http-form.component.css']
 })
-export class HttpFormComponent {
+export class HttpFormComponent implements OnDestroy{
   @ViewChild('postForm') myForm: NgForm;
   
   loadedPosts: Post[] = [];
   isFetching = false;
   error = null;
+  private errorSub: Subscription;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
+    this.errorSub = this.postsService.errorS.subscribe(errorMessage => {
+      this.error = errorMessage;
+    })
+
     this.isFetching = true;
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
@@ -51,5 +57,9 @@ export class HttpFormComponent {
     this.postsService.deletePosts().subscribe(() => {
       this.loadedPosts = [];
     });
+  }
+
+  ngOnDestroy() {
+    this.errorSub.unsubscribe();
   }
 }
