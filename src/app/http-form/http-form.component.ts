@@ -15,6 +15,7 @@ export class HttpFormComponent {
   
   loadedPosts: Post[] = [];
   isFetching = false;
+  error = null;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
@@ -23,6 +24,9 @@ export class HttpFormComponent {
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
+    }, errors => {
+      this.error = errors.message;
+      console.log(errors);
     });
   }
 
@@ -37,6 +41,8 @@ export class HttpFormComponent {
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
+    }, errors => {
+      this.error = errors.message;
     });
   }
 
