@@ -30,6 +30,8 @@ import { serverResolver } from './serversR/serverR/server-resolver.service';
 import { HomeOComponent } from './homeO/homeO.component';
 import { UserOComponent } from './userO/userO.component';
 import { ReactFormComponent } from './react-form/react-form.component';
+import { HttpFormComponent } from './http-form/http-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -53,13 +55,15 @@ import { ReactFormComponent } from './react-form/react-form.component';
     ErrorPageComponent,
     HomeOComponent,
     UserOComponent,
-    ReactFormComponent
+    ReactFormComponent,
+    HttpFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AccountService, LoggingService, ServersService, AuthGuard, AuthService, canDeactivateGuard, serverResolver],
   bootstrap: [AppComponent]
