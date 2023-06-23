@@ -9,7 +9,7 @@ import { Post } from './post.model';
   styleUrls: ['./http-form.component.css']
 })
 export class HttpFormComponent {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -50,7 +50,7 @@ export class HttpFormComponent {
       return postsArray; //for subscribe
     }))
     .subscribe(posts => {
-      console.log(posts);
+      this.loadedPosts = posts;
     });
   }
 }
